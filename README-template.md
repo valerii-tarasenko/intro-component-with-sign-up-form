@@ -42,33 +42,54 @@ Users should be able to:
 
 ### What I learned
 
-Use this section to recap over some of your major learnings while working through this project. Writing these out and providing code samples of areas you want to highlight is a great way to reinforce your own knowledge.
+This project was about validating a form with several fields. The main thing I learned is how to check all inputs in one place instead of writing the same code four times. I used `querySelectorAll` with `forEach`, and `nextElementSibling` to find the error message that belongs to each input:
 
-To see how you can add code snippets, see below:
-
-```html
-<h1>Some HTML code I'm proud of</h1>
-```
-```css
-.proud-of-this-css {
-  color: papayawhip;
-}
-```
 ```js
-const proudOfThisFunc = () => {
-  console.log('🎉')
+const form = document.querySelector(".card__form");
+const inputs = document.querySelectorAll(".card__form input");
+
+form.addEventListener("submit", function (event) {
+  event.preventDefault();
+
+  inputs.forEach(function (input) {
+    const message = input.nextElementSibling;
+    const value = input.value.trim();
+
+    let isValid = value !== "";
+
+    if (input.type === "email") {
+      isValid = value.includes("@") && value.includes(".");
+    }
+
+    if (isValid) {
+      input.classList.remove("card__input--error");
+      message.classList.add("hidden");
+    } else {
+      input.classList.add("card__input--error");
+      message.classList.remove("hidden");
+    }
+  });
+});
+```
+
+I also learned that:
+
+- The error icon and red border can be controlled only by a CSS class, so JavaScript only adds or removes the class.
+- I can hide the placeholder in the error state with only CSS:
+
+```css
+.card__form input.card__input--error::placeholder {
+  color: transparent;
 }
 ```
 
-If you want more help with writing markdown, we'd recommend checking out [The Markdown Guide](https://www.markdownguide.org/) to learn more.
-
-**Note: Delete this note and the content within this section and replace with your own learnings.**
+- If the live site does not show my latest changes, I should do a hard refresh (Ctrl + Shift + R) before looking for a bug.
 
 ### Continued development
 
-Use this section to outline areas that you want to continue focusing on in future projects. These could be concepts you're still not completely comfortable with or techniques you found useful that you want to refine and perfect.
-
-**Note: Delete this note and the content within this section and replace with your own plans for continued development.**
+- Making the form accessible: real labels for inputs and `aria-live` for error messages.
+- Working with data from the internet (`fetch` and `async/await`).
+- Writing more code without looking at my old projects.
 
 ## Author
 
