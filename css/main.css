@@ -1,0 +1,209 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  color: white;
+  font-family: "Poppins", sans-serif;
+}
+
+input,
+button {
+  font-family: inherit;
+}
+
+h1 {
+  font-weight: 700;
+  font-size: 50px;
+  line-height: 1;
+  margin-bottom: 20px;
+}
+
+.hero__section {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: hsl(0, 100%, 74%);
+  background-image: url("../images/bg-intro-desktop.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+}
+
+.wrapper {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card {
+  display: flex;
+  align-items: center;
+  gap: 80px;
+  width: 90%;
+  max-width: 1110px;
+}
+
+.card__text {
+  flex: 1;
+}
+
+.card__info {
+  flex: 0 0 540px;
+}
+
+.card__free {
+  background-color: hsl(248, 32%, 49%);
+  margin-bottom: 25px;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 6px 0px rgba(0, 0, 0, 0.35);
+}
+
+.card__free br {
+  display: none;
+}
+
+.card__block {
+  background-color: #ffffff;
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: 0 6px 0px rgba(0, 0, 0, 0.35);
+}
+
+.card__form input {
+  width: 100%;
+  padding: 16px 20px;
+  border-radius: 5px;
+  font-size: 14px;
+  font-weight: 600;
+  border: 1px solid hsl(246, 25%, 77%);
+  outline: none;
+  transition: 0.2s ease;
+}
+
+.card__form input:focus {
+  border-color: #000000;
+}
+
+.card__label {
+  padding: 10px 0px;
+}
+
+.hidden {
+  display: none;
+}
+
+.card__form input.card__input--error {
+  border-color: hsl(0, 100%, 74%);
+  background-image: url("../images/icon-error.svg");
+  background-repeat: no-repeat;
+  background-position: right 20px center;
+  color: hsl(0, 100%, 74%);
+}
+
+.card__form input.card__input--error::placeholder {
+  color: transparent;
+}
+
+.error__message {
+  color: hsl(0, 100%, 74%);
+  font-size: 11px;
+  font-weight: 500;
+  text-align: right;
+  font-style: italic;
+}
+
+.card__form button {
+  outline: none;
+  cursor: pointer;
+  border: none;
+  color: #ffffff;
+  background-color: hsl(154, 59%, 51%);
+  padding: 15px 19px;
+  width: 100%;
+  border-radius: 5px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-size: 15px;
+  font-weight: 600;
+  transition: 0.2s ease;
+  box-shadow: 0 6px 0px rgb(58, 181, 126);
+}
+.card__form button:hover {
+  background-color: hsl(154, 59%, 65%);
+}
+
+.card__form button:focus-visible {
+  outline: 3px solid hsl(248, 32%, 49%);
+  outline-offset: 3px;
+}
+
+.card__form button:active {
+  background-color: #77e2b4;
+}
+
+.info {
+  font-size: 11px;
+  text-align: center;
+  color: hsl(246, 25%, 77%);
+}
+
+.card__text p {
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.card__free {
+  font-size: 15px;
+}
+
+.info span {
+  color: hsl(0, 100%, 74%);
+  font-weight: 700;
+}
+
+@media (max-width: 600px) {
+  .hero__section {
+    background-image: url("../images/bg-intro-mobile.png");
+  }
+
+  .card {
+    flex-direction: column;
+    gap: 24px;
+    text-align: center;
+  }
+
+  h1 {
+    font-size: 30px;
+  }
+
+  .card__text p {
+    width: 95%;
+    margin-bottom: 30px;
+  }
+
+  .card__free {
+    padding: 20px;
+  }
+
+  .card__free br {
+    display: block;
+  }
+
+  .card__block {
+    padding: 24px;
+  }
+
+  .card__label {
+    padding: 8px 0;
+  }
+
+  .card__form input {
+    padding: 16px 20px;
+  }
+}
